@@ -13,8 +13,8 @@ function color_my_prompt {
   local __user_and_host="$GREEN\u@\h"
   local __cur_location="$BLUE\W"           # capital 'W': current directory, small 'w': full file path
   local __git_branch_color="$GREEN"
-  local __prompt_tail="$VIOLET$"
-  local __user_input_color="$GREEN"
+  local __prompt_tail="$CYAN$"
+  local __user_input_color="$LIGHT_GRAY"
   local __git_branch=$(__git_ps1); 
   
   # colour branch name depending on state

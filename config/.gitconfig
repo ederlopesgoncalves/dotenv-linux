@@ -1,0 +1,48 @@
+[user]
+	name = Eder Goncalves
+	email = ederlopesgoncalves@gmail.com
+
+[alias]
+
+	cm = commit
+
+	co = checkout
+
+	cd = checkout develop
+
+	cb = checkout -b
+
+	st = status
+
+	sf = show --name-only
+
+	tags = tag -l
+
+	br = branch -a
+
+	remotes = remote -v
+	
+	ft = fetch
+
+	ahead = "!sh -c 'echo branch is $(git rev-list --count origin/develop..HEAD) commits ahead develop'"
+
+        behind = "!sh -c 'echo branch is $(git rev-list --count HEAD..origin/develop) commits behind develop'"
+
+	lg = log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=10
+
+	lgl = log --all --graph --decorate --oneline --abbrev-commit
+
+	incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
+
+	outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
+
+	unstage = reset HEAD --
+
+	undo = checkout --
+	
+	# Remover ultimo commit
+	rollback = reset --soft HEAD~1
+
+	# Saber origin da branch
+	par = !(git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@')
+
